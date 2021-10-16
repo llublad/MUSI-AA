@@ -7,3 +7,5 @@ __pycache__/
 # Jupyter Notebook
 .ipynb_checkpoints
 
+# MAC data store
+.DS_Store
