@@ -1,4 +1,4 @@
-name: basic_ml_project
+name: musi-aa-ml_project
 channels:
   - defaults
 dependencies:
