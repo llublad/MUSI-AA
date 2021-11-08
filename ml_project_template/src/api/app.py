@@ -17,7 +17,7 @@ PROJECT_DIR = Path(__file__).resolve().parents[2]
 
 artifact_loader = ArtifactSaverLoader(models_filepath=PROJECT_DIR.joinpath('models'))
 
-model = artifact_loader.load_artifact('linear-sdg-reg-2020-11-22T17H-22M.p')
+model = artifact_loader.load_artifact('linear-sdg-reg-2021-11-08T17-19-00Z.p')
 
 app = Flask(__name__)
 port = int(os.getenv('PORT', '3000'))

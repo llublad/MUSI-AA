@@ -8,7 +8,7 @@ PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 BUCKET = [OPTIONAL] your-bucket-for-syncing-data (do not include 's3://')
 PROFILE = default
 PROJECT_NAME = basic_ml_project
-PYTHON_INTERPRETER = python3
+PYTHON_INTERPRETER = python
 
 ifeq (,$(shell which conda))
 HAS_CONDA=False
@@ -19,11 +19,6 @@ endif
 #################################################################################
 # COMMANDS                                                                      #
 #################################################################################
-
-## Install Python Dependencies
-requirements: test_environment
-	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel
-	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
 
 ## Make Dataset
 data:
@@ -72,10 +67,19 @@ else
 endif
 
 ## Set up python interpreter environment
-requirements:
+update_conda_environment:
+ifeq (True,$(HAS_CONDA))
+		@echo ">>> Detected conda, updating conda environment."
+		conda env update -f environment.yml
+else
+	@echo ">>> conda not detected. Exit"
+	exit 1
+endif
+
+create_conda_environment:
 ifeq (True,$(HAS_CONDA))
 		@echo ">>> Detected conda, creating conda environment."
-		conda env update -f environment.yml
+		conda env create -f environment.yml
 else
 	@echo ">>> conda not detected. Exit"
 	exit 1

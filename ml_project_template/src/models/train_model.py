@@ -68,7 +68,7 @@ class ModelTrainer(object):
         return evaluation
 
     def train(self):
-        logger = logging.getLogger(__name__)
+        logger = logging.getLogger('train_model')
 
         logger.info(f'Loading data from {self.input_filepath}')
         data_df = self.load_modelling_data()
@@ -104,6 +104,7 @@ if __name__ == '__main__':
     model_name = 'linear-sdg-reg'
     target_name = 'price'
 
+    np.random.seed(42)
     trainer = ModelTrainer(input_filepath, output_filepath, target_name, model_name, test_ratio=0.2)
 
     trainer.train()
