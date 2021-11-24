@@ -13,7 +13,7 @@ Ha estat confeccionada per l'alumne
 
 Es lliuren quatre fitxers. 
 El [primer](00_readme.md) fitxer, de tipus *mark down* és aquest *Readme*. 
-i descriu per sobre el contingut i estructura lluirats. 
+i descriu breument el contingut i estructura lluirats. 
 
 El [segon](10_hr_features_engineering.ipynb) 
 és un quadern de *Jupyter* 
